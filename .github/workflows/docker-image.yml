@@ -20,17 +20,19 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
-      - name: Run tests with pytest
-        run: pytest
+          pip install pytest
 
       - name: List files in current directory (debugging)
         run: ls -la
 
-      - name: Print pytest logs (debugging)
-        if: failure()
-        run: cat pytest_output.log
+      - name: Display Python version (debugging)
+        run: python --version
+
+      - name: Display installed packages (debugging)
+        run: pip list
+
+      - name: Run tests with pytest
+        run: pytest
 
   build:
     needs: test
