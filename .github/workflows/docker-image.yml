@@ -17,10 +17,13 @@ jobs:
         with:
           python-version: 3.8
 
-      - name: Test with pytest
+      - name: Install dependencies
         run: |
-          pip install pytest
-          pytest
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Test with pytest
+        run: pytest
 
   build:
     needs: test
@@ -34,5 +37,5 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker build -t tishamadhok/ci-cd-docker:latest .
-          docker push tishamadhok/ci-cd-docker:latest
+          docker build -t your-username/ci-cd-docker:latest .
+          docker push your-username/ci-cd-docker:latest
