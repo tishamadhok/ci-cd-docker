@@ -34,5 +34,5 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker build -t your-username/ci-cd-docker:latest .
-          docker push your-username/ci-cd-docker:latest
+          docker build -t tishamadhok/ci-cd-docker:latest .
+          docker push tishamadhok/ci-cd-docker:latest
